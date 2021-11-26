@@ -6,6 +6,8 @@ const server = http.createServer(app);
 const { Server } = require('socket.io');
 const io = new Server(server);
 
+app.use('/', express.static(__dirname + '/public'));// jsやcssを'/'パスで外部ファイルでリンクできるようにexpressを設定
+
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
